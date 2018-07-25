@@ -34,6 +34,11 @@ class App extends Component {
         alert("입력값 초과입니다. 입력 최대값은 10자리 입니다.")
       }
     }
+    if(this.state.view === ''){
+      this.setState({
+        view: '0'
+      })
+    }
   }
   render() {
     return (
@@ -105,6 +110,11 @@ class App extends Component {
   }
   _delete = (e) => {
     if(this.state.view !== "0"){
+      if(this.state.view.substr(this.state.view.length-1) === '.' ){
+       this.setState({
+         decimal: false
+       }) 
+      }
       this.setState({
         view: this.state.view.slice(0, -1)
       })
@@ -115,7 +125,8 @@ class App extends Component {
       view: '0',
       prev: '0',
       operator: '+',
-      willClear: false
+      willClear: false,
+      decimal: false
     })
   }
 }

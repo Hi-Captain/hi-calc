@@ -7,3 +7,5 @@ make calculator with react
   * issue : 계산가능한 범위 추가해볼까..?
 - 2018.07.25 : 계산 범위 추가
   * issue : del 버튼 누르면 state.view 가 null 된다..
+- 2018.07.25 : 버그 수정
+  * issue : del 버튼 & clear 버튼 deciaml 판단 수정 
