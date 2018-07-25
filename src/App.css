@@ -1,28 +1,80 @@
-.App {
-  text-align: center;
+@font-face{
+  font-family: "digi";
+  src:url(./DS-DIGI.TTF);
+  font-weight: normal;
+  font-style: normal;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.hiCalc{
+  width: 34rem;
+  height: 48rem;;
+  padding: 2rem;
+  border: 1px solid #333;
+  border-radius: 1rem;
+  background: aliceblue;
+
+  position: absolute;
+  top: 10rem;
+  left: 10rem;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.display{
+  font-family: 'digi';
+  font-size: 4.5rem;
+  width: 30rem;
+  height: 7rem;
+  line-height: 5rem;
+  padding: 1rem;
+  text-align: right;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: .5rem;
+  background: #fff;
+}
+.btnWrapper{
+  display: flex;
+  margin-top: 2rem;
 }
 
-.App-title {
-  font-size: 1.5em;
+.numBox{
+  flex: 0 0 75%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.App-intro {
-  font-size: large;
+.operBox{
+  flex: 0 0 25%;
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn {
+  height: 7rem;
+  border: 1px solid #ddd;
+  border-radius: .3rem;
+  outline: none;
+}
+
+.numbtn{
+  flex: 30%;
+}
+
+.numbtn:active{
+  background-color: rgb(35, 96, 209);
+  color: #fff;
+}
+
+.number:active{
+  background-color: rgb(79, 83, 90);
+  color: #fff;
+}
+
+.operbtn{
+  flex: 1
+}
+.operbtn:active{
+  background-color: rgb(235, 59, 67);
+  color: #fff;
 }

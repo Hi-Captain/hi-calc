@@ -5,7 +5,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      numBtn: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      numBtn: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       operBtn: ['+', '-', '*', '/', '='],
       view: '0',
       prev: '0',
@@ -34,7 +34,7 @@ class App extends Component {
         alert("입력값 초과입니다. 입력 최대값은 10자리 입니다.")
       }
     }
-    if(this.state.view === ''){
+    if(this.state.view === '' || this.state.view === 'NaN'){
       this.setState({
         view: '0'
       })
@@ -42,27 +42,36 @@ class App extends Component {
   }
   render() {
     return (
-      <section className="hiCalc">
-        <div className="display">{this.state.view}</div>
-        <div className="display">prev: {this.state.prev}</div>
-        <div className="display">operator: {this.state.operator}</div>
-        <div className="display">willClear: {this.state.willClear.toString()}</div>
-        <div className="display">decimal: {this.state.decimal.toString()}</div>
-        <div className="display">veiwlength: {this.state.view.length}</div>
-          {this.state.numBtn.map((num, i)=>{
-            return (
-              <button id={'num' + i} value={num} key={i} onClick={this._pressNumBtn}>{num}</button>
-            )
-          })}
-          <button id="decBtn" value="." onClick={this._pressDecBtn}>.</button>
-          {this.state.operBtn.map((operator, i)=>{
-            return (
-              <button id={'op' + i} value={operator} key={i} onClick={this._pressOperBtn}>{operator}</button>
-            )
-          })}
-          <button onClick={this._delete}>del</button>
-          <button onClick={this._clear}>clear</button>
-      </section>
+      <div>
+        <section className="hiCalc">
+          <div className="display">{this.state.view}</div>
+          <div className="btnWrapper">
+            <div className="numBox">
+            {this.state.numBtn.map((num, i)=>{
+                return (
+                  <button className="btn numbtn number" value={num} key={i} onClick={this._pressNumBtn}>{num}</button>
+                )
+              })}
+              <button className="btn numbtn" value="." onClick={this._pressDecBtn}>.</button>
+              <button className="btn numbtn number" value="0" onClick={this._pressNumBtn}>0</button>
+              <button className="btn numbtn" onClick={this._delete}>del</button>
+              <button className="btn numbtn" onClick={this._clear}>clear</button>
+            </div>
+            <div className="operBox">
+              {this.state.operBtn.map((operator, i)=>{
+                return (
+                  <button className="btn operbtn" value={operator} key={i} onClick={this._pressOperBtn}>{operator}</button>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+        <div>prev: {this.state.prev}</div>
+        <div>operator: {this.state.operator}</div>
+        <div>willClear: {this.state.willClear.toString()}</div>
+        <div>decimal: {this.state.decimal.toString()}</div>
+        <div>veiwlength: {this.state.view.length}</div>
+      </div>
     );
   }
   _pressNumBtn = (e) => {
