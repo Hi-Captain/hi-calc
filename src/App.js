@@ -14,7 +14,27 @@ class App extends Component {
       decimal: false,
     }
   }
-
+  componentDidUpdate(){
+    if(this.state.willClear){
+      if(this.state.view.length > 13){
+        this.setState({
+          view: "0"
+        })
+        alert("표시할 수 없는 범위를 초과하였습니다. 표시 최대 범위는 13자리 입니다.") 
+      }
+      if(this.state.view > 9999999999999){
+        this.setState({
+          view: "0"
+        })
+        alert("계산할 수 있는 범위를 초과하였습니다. 계산 최대 범위는 9999999999입니다.") 
+      }
+    } else {
+      if(this.state.view.length > 10){
+        this._delete()
+        alert("입력값 초과입니다. 입력 최대값은 10자리 입니다.")
+      }
+    }
+  }
   render() {
     return (
       <section className="hiCalc">
@@ -23,6 +43,7 @@ class App extends Component {
         <div className="display">operator: {this.state.operator}</div>
         <div className="display">willClear: {this.state.willClear.toString()}</div>
         <div className="display">decimal: {this.state.decimal.toString()}</div>
+        <div className="display">veiwlength: {this.state.view.length}</div>
           {this.state.numBtn.map((num, i)=>{
             return (
               <button id={'num' + i} value={num} key={i} onClick={this._pressNumBtn}>{num}</button>
@@ -54,7 +75,7 @@ class App extends Component {
   }
   _pressOperBtn = (e) => {
     this.setState({
-      view: eval(this.state.prev + this.state.operator + this.state.view),
+      view: eval(this.state.prev + this.state.operator + this.state.view).toString(),
       prev: this.state.view,
       operator: e.target.value,
       willClear: true,
