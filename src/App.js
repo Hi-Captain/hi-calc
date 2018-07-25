@@ -6,7 +6,7 @@ class App extends Component {
     super(props)
     this.state = {
       numBtn: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      operBtn: [`=`, `+`, `-`, `*`, `/`],
+      operBtn: ['+', '-', '*', '/', '='],
       view: '0',
       prev: '0',
       operator: '+',
@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
     return (
-      <section>
+      <section className="hiCalc">
         <div className="display">{this.state.view}</div>
         <div className="display">prev: {this.state.prev}</div>
         <div className="display">operator: {this.state.operator}</div>
@@ -28,12 +28,13 @@ class App extends Component {
               <button id={'num' + i} value={num} key={i} onClick={this._pressNumBtn}>{num}</button>
             )
           })}
+          <button id="decBtn" value="." onClick={this._pressDecBtn}>.</button>
           {this.state.operBtn.map((operator, i)=>{
             return (
               <button id={'op' + i} value={operator} key={i} onClick={this._pressOperBtn}>{operator}</button>
             )
           })}
-          <button id="decBtn" value="." onClick={this._pressDecBtn}>.</button>
+          <button onClick={this._delete}>del</button>
           <button onClick={this._clear}>clear</button>
       </section>
     );
@@ -78,6 +79,13 @@ class App extends Component {
         view: '0.',
         willClear: false,
         decimal: true
+      })
+    }
+  }
+  _delete = (e) => {
+    if(this.state.view !== "0"){
+      this.setState({
+        view: this.state.view.slice(0, -1)
       })
     }
   }
