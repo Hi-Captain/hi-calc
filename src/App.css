@@ -12,10 +12,11 @@
   border: 1px solid #333;
   border-radius: 1rem;
   background: aliceblue;
-
   position: absolute;
-  top: 10rem;
-  left: 10rem;
+  cursor: -webkit-grab;
+}
+.hiCalc:active{
+  cursor: -webkit-grabbing;
 }
 
 .display{
@@ -30,7 +31,9 @@
   border: 1px solid #ddd;
   border-radius: .5rem;
   background: #fff;
+  cursor: initial;
 }
+
 .btnWrapper{
   display: flex;
   margin-top: 2rem;
@@ -55,6 +58,8 @@
   border: 1px solid #ddd;
   border-radius: .3rem;
   outline: none;
+  font-size: 2rem;
+  cursor: pointer;
 }
 
 .numbtn{
@@ -74,6 +79,7 @@
 .operbtn{
   flex: 1
 }
+
 .operbtn:active{
   background-color: rgb(235, 59, 67);
   color: #fff;
