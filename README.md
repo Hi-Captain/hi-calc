@@ -34,3 +34,8 @@ make calculator with react
   * idea : - 디자인은 어렵다..
            - 레이아웃도 어렵다..
            - 키보드 버튼도 적용해 볼 수 있을까..?
+
+> 2018.07.26
+  * title : 키보드 활성화
+  * content : - keydown 이벤트로 키보드 입력 활성화
+  * idea : - 포스트잇 처럼 마우스로 움직일 수 있을까

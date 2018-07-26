@@ -54,8 +54,8 @@ class App extends Component {
               })}
               <button className="btn numbtn" value="." onClick={this._pressDecBtn}>.</button>
               <button className="btn numbtn number" value="0" onClick={this._pressNumBtn}>0</button>
-              <button className="btn numbtn" onClick={this._delete}>del</button>
-              <button className="btn numbtn" onClick={this._clear}>clear</button>
+              <button className="btn numbtn" value="del" onClick={this._delete}>del</button>
+              <button className="btn numbtn" value="clear" onClick={this._clear}>clear</button>
             </div>
             <div className="operBox">
               {this.state.operBtn.map((operator, i)=>{
