@@ -117,9 +117,9 @@ class App extends Component {
         })
       }
     } else {
-      const value = eval(this.state.prev + this.state.operator + this.state.view).toString()
+      const value = parseFloat(eval(this.state.prev + this.state.operator + this.state.view).toPrecision(limit_display - 2))
       this.setState({//정상적으로 연산자가 들어 왔을 경우 필요한 상태들을 변경하여 이 후 입력값을 대비한다.
-        view: value,
+        view: value.toString(),
         prev: this.state.view,
         operator: e.target.value,
         willClear: true,

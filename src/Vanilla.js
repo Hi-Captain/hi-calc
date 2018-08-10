@@ -1,6 +1,6 @@
-document.addEventListener("keydown", keyPress);
+document.addEventListener("keyup", keyUp);
 
-function keyPress(e) {
+function keyUp(e) {
   const value = e.key
   const btn = /\d|[.+\-*/=]/
   const enter = document.querySelector("[value='=']")
